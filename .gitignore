@@ -1,7 +1,9 @@
-target/
+# Игнорировать всю сборку target, кроме результатов отчета Allure
+target/*
+!target/allure-results/
+!allure-results/
+
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 .kotlin
 
 ### IntelliJ IDEA ###
@@ -37,3 +39,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+Thumbs.db
+*.log
