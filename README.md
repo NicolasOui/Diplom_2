@@ -63,5 +63,5 @@ mvn clean test
 ### Просмотр Allure-отчета:
 Результаты тестов в папке `target/allure-results`. Для генерации и открытия HTML-отчета в браузере выполнить:
 ```bash
-allure serve target/allure-results
+allure serve allure-results
 ```
