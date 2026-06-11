@@ -5,8 +5,8 @@ import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Before;
 import org.junit.Test;
+import ru.yandex.practicum.stellaburgers.api.CreateUserSteps;
 import ru.yandex.practicum.stellaburgers.api.RandomDataUser;
-import ru.yandex.practicum.stellaburgers.api.UserClient;
 import ru.yandex.practicum.stellaburgers.models.CreateUser;
 import ru.yandex.practicum.stellaburgers.models.LoginUser;
 import static org.apache.http.HttpStatus.SC_OK;
@@ -17,12 +17,12 @@ import static org.hamcrest.Matchers.notNullValue;
 @DisplayName("Авторизация пользователя в Stellar Burgers")
 public class LoginUserTest extends BaseTest {
 
-    private UserClient userSteps;
+    private CreateUserSteps userSteps;
     private CreateUser registeredUser;
 
     @Before
     public void localSetUp() {
-        userSteps = new UserClient();
+        userSteps = new CreateUserSteps();
         registeredUser = RandomDataUser.generate();
         Response response = userSteps.register(registeredUser);
         accessToken = response.path("accessToken");

@@ -5,7 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import ru.yandex.practicum.stellaburgers.api.CreateUserSteps;
 import ru.yandex.practicum.stellaburgers.api.Endpoints;
-import ru.yandex.practicum.stellaburgers.api.UserClient;
 
 public class BaseTest {
 

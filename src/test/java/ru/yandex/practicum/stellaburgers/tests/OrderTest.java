@@ -8,7 +8,6 @@ import org.junit.Test;
 import ru.yandex.practicum.stellaburgers.api.CreateUserSteps;
 import ru.yandex.practicum.stellaburgers.api.OrderSteps;
 import ru.yandex.practicum.stellaburgers.api.RandomDataUser;
-import ru.yandex.practicum.stellaburgers.api.UserClient;
 import ru.yandex.practicum.stellaburgers.models.CreateUser;
 import ru.yandex.practicum.stellaburgers.models.LoginUser;
 import ru.yandex.practicum.stellaburgers.models.Order;

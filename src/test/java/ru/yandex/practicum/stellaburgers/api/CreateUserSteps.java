@@ -1,6 +1,5 @@
 package ru.yandex.practicum.stellaburgers.api;
 
-import com.google.gson.Gson;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import ru.yandex.practicum.stellaburgers.models.CreateUser;
@@ -9,16 +8,13 @@ import static io.restassured.RestAssured.given;
 
 public class CreateUserSteps {
 
-    private final Gson gson = new Gson();
-
     @Step("Отправка POST-запроса на регистрацию пользователя")
     public Response register(CreateUser user) {
-        String jsonBody = gson.toJson(user);
         return given()
                 .filter(new io.qameta.allure.restassured.AllureRestAssured())
                 .header("Content-Type", "application/json")
                 .baseUri(Endpoints.BASE_URL)
-                .body(jsonBody)
+                .body(user)
                 .when()
                 .post(Endpoints.USER_REGISTER);
     }
@@ -36,12 +32,11 @@ public class CreateUserSteps {
 
     @Step("Отправка POST-запроса на авторизацию пользователя (логин)")
     public Response login(LoginUser loginUser) {
-        String jsonBody = gson.toJson(loginUser);
         return given()
                 .filter(new io.qameta.allure.restassured.AllureRestAssured())
                 .header("Content-Type", "application/json")
                 .baseUri(Endpoints.BASE_URL)
-                .body(jsonBody)
+                .body(loginUser)
                 .when()
                 .post(Endpoints.USER_LOGIN);
     }

@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import ru.yandex.practicum.stellaburgers.api.CreateUserSteps;
 import ru.yandex.practicum.stellaburgers.api.RandomDataUser;
-import ru.yandex.practicum.stellaburgers.api.UserClient;
 import ru.yandex.practicum.stellaburgers.models.CreateUser;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
@@ -20,7 +19,7 @@ public class CreateUserTest extends BaseTest {
 
     @Before
     public void localSetUp() {
-        userSteps = userClient;
+        userSteps = new CreateUserSteps();
     }
 
     @Test
@@ -83,7 +82,7 @@ public class CreateUserTest extends BaseTest {
     @Description("Ошибка 403 при попытке зарегистрировать пользователя с пустым полем name")
     public void cannotCreateUserWithoutName () {
         CreateUser userWithoutName = RandomDataUser.generate();
-        userWithoutName.setPassword(null);
+        userWithoutName.setName(null);
         Response response = userSteps.register(userWithoutName);
         response.then()
                 .statusCode(SC_FORBIDDEN)
@@ -104,5 +103,3 @@ public class CreateUserTest extends BaseTest {
                 .body("message", equalTo("Email, password and name are required fields"));
     }
 }
-
-
